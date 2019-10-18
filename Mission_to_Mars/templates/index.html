@@ -9,42 +9,42 @@
 </head>
 <body>
     <div class="container">
-        <div> class="jumbotron"
+        <div class="jumbotron" style="text-align:center;">
             <h1>Adam's Mission to Mars</h1>
             <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Get New Data</a></p>
         </div>
         <div class="row" id="mars_news_title">
-            <div class="col-md-12">
+            <div class="col-12">
                 <h3>Latest Mars Important News</h3>
                 <h4>{{mars.mars_news_title}}</h4>
                 <p>{{mars.mars_paragraph}}</p>
             </div>
         </div>
         <div class="row" id="mars_image">
-            <div class="col-md-8">
+            <div class="col-8">
                 <h3>Featured Mars Image</h3>
-                <img src="{{mars.mars_image}}" alt="Mars Image">
+                <img class="img-fluid" src="{{mars.mars_image}}" alt="Mars Image">
             </div>
-            <div class="col-md-4">
+            <div class="col-4">
                 <h4>Current Mars Weather</h4>
                 <p>{{mars.mars_weather}}</p>
                 <br>
                 <h4>Mars Facts</h4>
-                <p>{{mars.mars_facts}}</p>
+                <p>{{mars.mars_facts | safe}}</p>
             </div>
         </div>
         <div class="row" id="mars_hemispheres">
-            <div class="col-md-12">
-                <h3><center>Mars Hemispheres</center></h3>
-                {% for hemisphere in mars.mars_hemispheres %}
-                    <div class="col-md-6">
-                        <div class="thumbnail">
-                                <h3>{{mars_hemispheres.title}}</h3>
-                                <img src="{{mars_hemispheres.img_url" alt="Hemisphere">
-                        </div>
-                    </div>
-                {% endfor %}
+            <div class="col-12">
+                <h3 style="text-align:center;">Mars Hemispheres</h3>
             </div>
+            {% for hemisphere in mars.mars_hemispheres %}
+                <div class="col-6">
+                    <div class=".img-thumbnail">
+                        <h3>{{hemisphere.title}}</h3>
+                        <img src="{{hemisphere.img_url}}" class="img-fluid" alt="Hemisphere">
+                    </div>
+                </div>
+            {% endfor %}
         </div>
     </div>
 </body>
